@@ -3,6 +3,7 @@ using DataAccess.Abstract;
 using Entity.Concrete;
 using Entity.DTOs;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -22,7 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
                              select new RentalDetailDto
                              {
                                  Id = r.Id,
-                                 CarName = ca.Name,
+                                 CarName = ca.CarName,
                                  CustomerId = c.Id,
                                  CarId = ca.Id,
                                  RentDate = r.RentDate,
