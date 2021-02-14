@@ -44,7 +44,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
-        public IDataResult<List<Car>> GetCarsBrandId(int brandId)
+        public IDataResult<List<Car>> GetByBrandId(int brandId)
         {
             if (brandId <= 0)
             {
@@ -53,7 +53,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == brandId).ToList(), Messages.Listed);
         }
 
-        public IDataResult<List<Car>> GetCarsColorId(int colorId)
+        public IDataResult<List<Car>> GetByColorId(int colorId)
         {
             if (colorId <= 0)
             {

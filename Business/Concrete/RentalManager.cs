@@ -21,7 +21,7 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
-            if (rental.ReturnDate.Date < DateTime.Now)
+            if (rental.ReturnDate.Date < DateTime.Now.Date)
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.Added);
@@ -52,7 +52,7 @@ namespace Business.Concrete
 
         public IResult Update(Rental rental)
         {
-            if (rental.ReturnDate.Date == DateTime.Now)
+            if (rental.ReturnDate.Date == DateTime.Now.Date)
             {
                 _rentalDal.Update(rental);
                 return new SuccessResult(Messages.Updated);
