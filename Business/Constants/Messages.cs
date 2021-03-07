@@ -8,5 +8,6 @@
         public static string NotListed = "Invalid Parameter";
         public static string Deleted = "Deleted";
         public static string Updated = "Updated";
+        public static string CarImageLimitExceed = "Max Car Images Limit Exceed";
     }
 }
