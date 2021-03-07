@@ -14,7 +14,6 @@ using System.Linq;
 
 namespace Business.Concrete
 {
-    [ValidationAspect(typeof(CarImageValidator))]
     public class CarImageManager : ICarImageService
     {
         private ICarImageDal _carImageDal;
@@ -24,6 +23,7 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
         }
 
+        [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile formFile, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageLimitExceed(carImage));

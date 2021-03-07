@@ -11,8 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Business.Concrete
-{
-    [ValidationAspect(typeof(RentalValidator))]
+{   
     public class RentalManager : IRentalService
     {
         private IRentalDal _rentalDal;
@@ -22,9 +21,10 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            if (rental.ReturnDate.Date < DateTime.Now.Date)
+            if (rental.ReturnDate != DateTime.Now.Date)
             {
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.Added);
@@ -55,7 +55,7 @@ namespace Business.Concrete
 
         public IResult Update(Rental rental)
         {
-            if (rental.ReturnDate.Date == DateTime.Now.Date)
+            if (rental.ReturnDate == DateTime.Now.Date)
             {
                 _rentalDal.Update(rental);
                 return new SuccessResult(Messages.Updated);

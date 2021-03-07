@@ -11,7 +11,6 @@ using System.Linq;
 
 namespace Business.Concrete
 {
-    [ValidationAspect(typeof(CarValidator))]
     public class CarManager : ICarService
     {
         private ICarDal _carDal;
@@ -21,6 +20,7 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             _carDal.Add(car);

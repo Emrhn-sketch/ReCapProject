@@ -9,7 +9,6 @@ using System.Collections.Generic;
 
 namespace Business.Concrete
 {
-    [ValidationAspect(typeof(UserValidator))]
     public class UserManager : IUserService
     {
         private IUserDal _userDal;
@@ -19,6 +18,7 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
             if (user.LastName.Length < 2)
