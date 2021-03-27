@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entity.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -14,7 +15,8 @@ namespace WebAPI.Controllers
             _carService = carService;
         }
 
-        [HttpGet("GetAll")]
+        [HttpGet("getall")]
+        //[Authorize()]
         public IActionResult GetAll()
         {
             var result = _carService.GetAll();
@@ -25,35 +27,35 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("GetByBrandId")]
+        [HttpGet("getbybrandid")]
         public IActionResult GetByBrandId(int brandId)
         {
             var result = _carService.GetByBrandId(brandId);
             return result.Success ? Ok(result) : (IActionResult)BadRequest(result);
         }
 
-        [HttpGet("GetByColorId")]
+        [HttpGet("getbycolorid")]
         public IActionResult GetByColorId(int colorId)
         {
             var result = _carService.GetByColorId(colorId);
             return result.Success ? Ok(result) : (IActionResult)BadRequest(result);
         }
 
-        [HttpGet("GetCarDetails")]
+        [HttpGet("getcardetails")]
         public IActionResult GetCarDetails()
         {
             var result = _carService.GetCarDetails();
             return result.Success ? Ok(result) : (IActionResult)BadRequest(result);
         }
 
-        [HttpGet("GetById")]
+        [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _carService.GetById(id);
             return result.Success ? Ok(result) : (IActionResult)BadRequest(result);
         }
 
-        [HttpPost("Add")]
+        [HttpPost("add")]
         public IActionResult Add(Car car)
         {
             var result = _carService.Add(car);

@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapContext>, ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, RecapContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
-            using (ReCapContext context = new ReCapContext())
+            using (RecapContext context = new RecapContext())
             {
                 var result = from c in context.Cars
                              join co in context.Colors

@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfRentalDal : EfEntityRepositoryBase<Rental, ReCapContext>, IRentalDal
+    public class EfRentalDal : EfEntityRepositoryBase<Rental, RecapContext>, IRentalDal
     {
         public List<RentalDetailDto> GetRentalDetails()
         {
-            using (ReCapContext context = new ReCapContext())
+            using (RecapContext context = new RecapContext())
             {
                 var result = from r in context.Rentals
                              join ca in context.Cars

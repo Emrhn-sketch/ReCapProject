@@ -1,4 +1,6 @@
-﻿namespace Business.Constants
+﻿using System.Runtime.Serialization;
+
+namespace Business.Constants
 {
     public static class Messages
     {
@@ -9,5 +11,10 @@
         public static string Deleted = "Deleted";
         public static string Updated = "Updated";
         public static string CarImageLimitExceed = "Max Car Images Limit Exceed";
+        public static string UserNotFound = "User Not Found";
+        public static string PasswordError = "Wrong Password";
+        public static string UserAlreadyExists = "User Already Exists";
+        public static string AccessTokenCreated = "Access Token Created";
+        public static string AuthorizationDenied = " Authorization Denied";
     }
 }
