@@ -1,6 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-public interface ICoreModule
+namespace Core.Utilities.IoC
 {
-    void Load(IServiceCollection serviceCollection);
+    public interface ICoreModule
+    {
+        void Load(IServiceCollection serviceCollection);
+    }
 }
+
